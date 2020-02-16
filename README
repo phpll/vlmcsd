@@ -12,3 +12,26 @@ man man/vlmcsd.7
 
 If you don't have man, you may also use the .txt, .html and .pdf files
 in the man directory
+
+## windows server2019激活
+# 方法1：
+CMD 下运行
+slmgr /upk
+slmgr /ipk WVDHN-86M7X-466P6-VHXV7-YY726
+slmgr /skms zh.us.to
+slmgr /ato
+# 方法2：
+# 自己搭建激活服务器，前提需要linux 服务器
+# LINUX搭建KMS服务器，SSH下执行一下命令：
+wget https://github.com/Wind4/vlmcsd/ ... 111/binaries.tar.gz
+tar -zxvf binaries.tar.gz
+cd binaries/Linux/intel/static/
+./vlmcsd-x64-musl-static
+# 搭建完服务器开始激活
+CMD 运行
+slmgr.vbs -upk
+slmgr.vbs -ipk WVDHN-86M7X-466P6-VHXV7-YY726
+slmgr.vbs -skms 192.168.134.113
+slmgr.vbs -ato
+slmgr.vbs -dlv
+# 其中 192.168.134.113 是我搭建的激活服务器地址，需要根据实际情况修改。
